@@ -1,0 +1,49 @@
+### Signup Test
+POST http://127.0.0.1:8000/signup/
+Content-Type: application/json
+
+{
+  "email": "kyerematengcollins93@gmail.com",
+  "username": "PROFESSOR",
+  "password": "securepassword123"
+}
+
+###
+
+### Login Test
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{
+  "email": "kyerematengcollins93@gmail.com",
+  "password": "securepassword123"
+}
+
+###
+
+### Password Reset Request Test
+POST http://127.0.0.1:8000/password-reset/
+Content-Type: application/json
+
+{
+  "email": "kyerematengcollins93@gmail.com"
+}
+
+###
+
+### Password Reset Confirmation Test
+# Replace <uid> and <token> with actual values from the password reset email
+POST http://127.0.0.1:8000/password-reset-confirm/<uid>/<token>/
+Content-Type: application/json
+
+{
+  "password": "newsecurepassword123",
+  "password_confirmation": "newsecurepassword123"
+}
+
+###
+
+### Logout Test
+# Replace <token> with the actual token obtained from the login response
+POST http://127.0.0.1:8000/logout/
+Authorization: Token <token>
